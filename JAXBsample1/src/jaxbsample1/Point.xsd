@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="point" type="PointX"/>
+
+  <xs:complexType name="PointX">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element name="ix" type="xs:int"/>
+        <xs:element name="dx" type="xs:double"/>
+      </xs:choice>
+      <xs:choice minOccurs="0">
+        <xs:element name="iy" type="xs:int"/>
+        <xs:element name="dy" type="xs:double"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Brandlist.xml
+    Created on : November 3, 2010, 5:21 PM
+    Author     : apt
+    Description:
+        Purpose of the document follows.
+-->
+<Brands>
+    <Brand>
+        <SerialNo>1001</SerialNo>
+        <BrandName>Raymond</BrandName>
+        <Price>700</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1002</SerialNo>
+        <BrandName>Raymond</BrandName>
+        <Price>600</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1003</SerialNo>
+        <BrandName>Vimal</BrandName>
+        <Price>600</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1004</SerialNo>
+        <BrandName>Bombay dying</BrandName>
+        <Price>500</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1005</SerialNo>
+        <BrandName>Bombay dying</BrandName>
+        <Price>450</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1006</SerialNo>
+        <BrandName>Raid and Tailor</BrandName>
+        <Price>750</Price>
+    </Brand>
+    <Brand>
+        <SerialNo>1007</SerialNo>
+        <BrandName>Raid and Tailor</BrandName>
+        <Price>700</Price>
+    </Brand>
+</Brands>
+

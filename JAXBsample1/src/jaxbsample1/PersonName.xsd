@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://turpi.net/jaxbsample1" xmlns:tns="http://turpi.net/jaxbsample1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="employee" type="tns:personName"/>
+
+  <xs:complexType name="personName">
+    <xs:sequence>
+      <xs:element name="first" type="xs:string" minOccurs="0"/>
+      <xs:element name="middle" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

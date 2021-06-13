@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="blood" type="bloodType"/>
+
+  <xs:simpleType name="bloodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="B"/>
+      <xs:enumeration value="O"/>
+      <xs:enumeration value="AB"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

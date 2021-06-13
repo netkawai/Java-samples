@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Kawai/Desktop/NetBeansProjects/WebJpa/src/trackings.xsd" uri="src/conf/xml-resources/jaxb/Tracking/trackings.xsd"/>
+</catalog>
