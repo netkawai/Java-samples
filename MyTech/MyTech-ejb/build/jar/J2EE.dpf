@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment-plan>
+  <file-entry>
+    <name>sun-ejb-jar.xml</name>
+    <content>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE sun-ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Application Server 9.0 EJB 3.0//EN" "http://www.sun.com/software/appserver/dtds/sun-ejb-jar_3_0-0.dtd"&gt;
+&lt;sun-ejb-jar&gt;
+  &lt;enterprise-beans&gt;
+    &lt;cmp-resource&gt;
+      &lt;jndi-name&gt;jdbc/sample&lt;/jndi-name&gt;
+    &lt;/cmp-resource&gt;
+  &lt;/enterprise-beans&gt;
+&lt;/sun-ejb-jar&gt;
+</content>
+  </file-entry>
+  <file-entry>
+    <name>sun-cmp-mappings.xml</name>
+    <content>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE sun-cmp-mappings PUBLIC "-//Sun Microsystems, Inc.//DTD Application Server 8.1 OR Mapping//EN" "http://www.sun.com/software/appserver/dtds/sun-cmp-mapping_1_2.dtd"&gt;
+&lt;sun-cmp-mappings&gt;
+  &lt;sun-cmp-mapping&gt;
+    &lt;schema&gt;APP_MyTech-ejb&lt;/schema&gt;
+    &lt;entity-mapping&gt;
+      &lt;ejb-name&gt;CustInerctBean&lt;/ejb-name&gt;
+      &lt;table-name&gt;cust_inerct&lt;/table-name&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;customerid&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.CUSTOMERID&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;meetingtime&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.MEETINGTIME&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;meetingdate&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.MEETINGDATE&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;mode&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.MODE&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;contact&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.CONTACT&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+      &lt;cmp-field-mapping&gt;
+        &lt;field-name&gt;note&lt;/field-name&gt;
+        &lt;column-name&gt;cust_inerct.NOTE&lt;/column-name&gt;
+        &lt;fetched-with&gt;
+          &lt;default/&gt;
+        &lt;/fetched-with&gt;
+      &lt;/cmp-field-mapping&gt;
+    &lt;/entity-mapping&gt;
+  &lt;/sun-cmp-mapping&gt;
+&lt;/sun-cmp-mappings&gt;
+</content>
+  </file-entry>
+</deployment-plan>

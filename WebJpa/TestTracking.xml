@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : TestTracking.xml
+    Created on : October 30, 2010, 7:10 PM
+    Author     : Kawai
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns1:trackings  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns1='http://xml.tars.net/tracking'
+   xsi:schemaLocation='http://xml.tars.net/tracking src/conf/xml-resources/jaxb/Tracking/trackings.xsd'>
+    <tracking>
+        <date>2010-10-03</date>
+        <address>Bangalore</address>
+        <receiver>John</receiver>
+    </tracking>
+
+</ns1:trackings>
