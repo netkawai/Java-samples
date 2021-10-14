@@ -78,7 +78,7 @@ public class ADagentAboutBox extends javax.swing.JDialog {
         appDescLabel.setText(bundle.getString("appDescLabel.text")); // NOI18N
         appDescLabel.setName("appDescLabel"); // NOI18N
 
-        imageLabel.setIcon(bundle.getIcon("imageLabel.icon")); // NOI18N
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/about.png"))); // NOI18N
         imageLabel.setName("imageLabel"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
