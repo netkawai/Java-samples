@@ -1143,12 +1143,10 @@ public class ADagentView extends javax.swing.JFrame {
         frameTab.setEnabledAt(0, true);
     }
 
-    @Action
     public void loginUsers() {
         loginDialog.setVisible(true);
     }
 
-    @Action
     public void logoutUsers() {
         initComponents2();
         currentUser = null;
