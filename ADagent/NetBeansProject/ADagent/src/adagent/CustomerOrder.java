@@ -14,7 +14,7 @@ package adagent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.math.BigDecimal;
-import org.jdesktop.application.Action;
+
 
 /**
  *
@@ -40,7 +40,7 @@ public class CustomerOrder extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(adagent.ADagentApp.class).getContext().getResourceMap(CustomerOrder.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(CustomerOrder.class);
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(resourceMap.getString("entityManager.persistenceUnit")).createEntityManager(); // NOI18N
         tContTypeQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery(resourceMap.getString("tContTypeQuery.query")); // NOI18N
         tContTypeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : tContTypeQuery.getResultList();
@@ -48,10 +48,6 @@ public class CustomerOrder extends javax.swing.JDialog {
         tPageTypeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : tPageTypeQuery.getResultList();
         tSizeTypeQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery(resourceMap.getString("tSizeTypeQuery.query")); // NOI18N
         tSizeTypeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : tSizeTypeQuery.getResultList();
-        dateVerifier1 = new adagent.DateVerifier();
-        sizeTypeListCellRenderer1 = new adagent.SizeTypeListCellRenderer();
-        pageTypeListCellRenderer1 = new adagent.PageTypeListCellRenderer();
-        contentTypeListCellRenderer1 = new adagent.ContentTypeListCellRenderer();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -70,15 +66,6 @@ public class CustomerOrder extends javax.swing.JDialog {
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setName("Form"); // NOI18N
 
-        sizeTypeListCellRenderer1.setText(resourceMap.getString("sizeTypeListCellRenderer1.text")); // NOI18N
-        sizeTypeListCellRenderer1.setName("sizeTypeListCellRenderer1"); // NOI18N
-
-        pageTypeListCellRenderer1.setText(resourceMap.getString("pageTypeListCellRenderer1.text")); // NOI18N
-        pageTypeListCellRenderer1.setName("pageTypeListCellRenderer1"); // NOI18N
-
-        contentTypeListCellRenderer1.setText(resourceMap.getString("contentTypeListCellRenderer1.text")); // NOI18N
-        contentTypeListCellRenderer1.setName("contentTypeListCellRenderer1"); // NOI18N
-
         jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
         jLabel4.setName("jLabel4"); // NOI18N
 
@@ -91,7 +78,6 @@ public class CustomerOrder extends javax.swing.JDialog {
         jLabel5.setName("jLabel5"); // NOI18N
 
         contComboBox.setName("contComboBox"); // NOI18N
-        contComboBox.setRenderer(contentTypeListCellRenderer1);
 
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, tContTypeList, contComboBox);
         bindingGroup.addBinding(jComboBoxBinding);
@@ -115,7 +101,6 @@ public class CustomerOrder extends javax.swing.JDialog {
         jLabel6.setName("jLabel6"); // NOI18N
 
         pageComboBox.setName("pageComboBox"); // NOI18N
-        pageComboBox.setRenderer(pageTypeListCellRenderer1);
 
         jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, tPageTypeList, pageComboBox);
         bindingGroup.addBinding(jComboBoxBinding);
@@ -139,7 +124,6 @@ public class CustomerOrder extends javax.swing.JDialog {
         jLabel7.setName("jLabel7"); // NOI18N
 
         jComboBox3.setName("jComboBox3"); // NOI18N
-        jComboBox3.setRenderer(sizeTypeListCellRenderer1);
 
         jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, tSizeTypeList, jComboBox3);
         bindingGroup.addBinding(jComboBoxBinding);
@@ -172,7 +156,7 @@ public class CustomerOrder extends javax.swing.JDialog {
         jLabel9.setText(resourceMap.getString("jLabel9.text")); // NOI18N
         jLabel9.setName("jLabel9"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(adagent.ADagentApp.class).getContext().getActionMap(CustomerOrder.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance().getContext().getActionMap(CustomerOrder.class, this);
         jButton1.setAction(actionMap.get("editrCustomerOK")); // NOI18N
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
         jButton1.setName("jButton1"); // NOI18N
@@ -185,21 +169,6 @@ public class CustomerOrder extends javax.swing.JDialog {
                 .addContainerGap(310, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(43, 43, 43))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 150, Short.MAX_VALUE)
-                    .addComponent(sizeTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 250, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 150, Short.MAX_VALUE)
-                    .addComponent(pageTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 250, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 150, Short.MAX_VALUE)
-                    .addComponent(contentTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 250, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(48, 48, 48)
@@ -232,21 +201,6 @@ public class CustomerOrder extends javax.swing.JDialog {
                 .addContainerGap(249, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(28, 28, 28))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 138, Short.MAX_VALUE)
-                    .addComponent(sizeTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 162, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 100, Short.MAX_VALUE)
-                    .addComponent(pageTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 200, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 62, Short.MAX_VALUE)
-                    .addComponent(contentTypeListCellRenderer1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 238, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(38, 38, 38)
@@ -297,8 +251,6 @@ public class CustomerOrder extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox contComboBox;
-    private adagent.ContentTypeListCellRenderer contentTypeListCellRenderer1;
-    private adagent.DateVerifier dateVerifier1;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox3;
@@ -311,8 +263,6 @@ public class CustomerOrder extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox pageComboBox;
-    private adagent.PageTypeListCellRenderer pageTypeListCellRenderer1;
-    private adagent.SizeTypeListCellRenderer sizeTypeListCellRenderer1;
     private java.util.List<adagent.TContType> tContTypeList;
     private javax.persistence.Query tContTypeQuery;
     private java.util.List<adagent.TPageType> tPageTypeList;
