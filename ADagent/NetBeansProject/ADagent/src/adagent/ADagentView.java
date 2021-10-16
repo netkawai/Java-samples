@@ -4,14 +4,9 @@
 
 package adagent;
 
+import SwingExtensions.SwingTask;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import org.jdesktop.application.Action;
-import org.jdesktop.application.ResourceMap;
-import org.jdesktop.application.SingleFrameApplication;
-import org.jdesktop.application.FrameView;
-import org.jdesktop.application.TaskMonitor;
-import org.jdesktop.application.Task;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -26,32 +21,29 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import org.jdesktop.beansbinding.AbstractBindingListener;
-import org.jdesktop.beansbinding.Binding;
-import org.jdesktop.beansbinding.PropertyStateEvent;
 
 /**
  * The application's main frame.
  */
-public class ADagentView extends FrameView {
+public class ADagentView extends javax.swing.JFrame {
     
-    public ADagentView(SingleFrameApplication app) {
-        super(app);
-
+    public ADagentView() {
+        super();
+        
         initComponents();
         initComponents2();
         // status bar initialization - message timeout, idle icon and busy animation, etc
-        ResourceMap resourceMap = getResourceMap();
-        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("adagent/resources/Bundle"); // NOI18N
+        int messageTimeout = bundle.getInteger("StatusBar.messageTimeout");
 	messageTimer = new Timer(messageTimeout, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 statusMessageLabel.setText("");
             }
         });
 	messageTimer.setRepeats(false);
-        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+        int busyAnimationRate = bundle.getInteger("StatusBar.busyAnimationRate");
         for (int i = 0; i < busyIcons.length; i++) {
-            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
+            busyIcons[i] = bundle.getIcon("StatusBar.busyIcons[" + i + "]");
         }
         busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +51,7 @@ public class ADagentView extends FrameView {
                 statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
             }
         }); 
-        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
+        idleIcon = bundle.getIcon("StatusBar.idleIcon");
         statusAnimationLabel.setIcon(idleIcon);
         progressBar.setVisible(false);
 
@@ -145,7 +137,6 @@ public class ADagentView extends FrameView {
         return orderTable.getSelectedRow() != -1;
     }
 
-    @Action
     public void newRecord() {
         adagent.TEmployee T = new adagent.TEmployee();
         entityManager.persist(T);
@@ -156,7 +147,6 @@ public class ADagentView extends FrameView {
         setSaveNeeded(true);
     }
 
-    @Action(enabledProperty = "recordSelected")
     public void deleteRecord() {
         int[] selected = masterTable.getSelectedRows();
         List<adagent.TEmployee> toRemove = new ArrayList<adagent.TEmployee>(selected.length);
@@ -187,7 +177,6 @@ public class ADagentView extends FrameView {
         ts.removeAll(toRemove);
     }
     
-    @Action(enabledProperty = "detailRecordSelected")
     public void editDetailRecord() {
         int index = masterTable.getSelectedRow();
         adagent.TEmployee T = list.get(masterTable.convertRowIndexToModel(index));
@@ -198,7 +187,6 @@ public class ADagentView extends FrameView {
             setSaveNeeded(true);
     }
 
-    @Action(enabledProperty = "detailRecordSelected")
     public void deleteDetailRecord() {
         int index = masterTable.getSelectedRow();
         adagent.TEmployee T = list.get(masterTable.convertRowIndexToModel(index));
@@ -220,14 +208,13 @@ public class ADagentView extends FrameView {
         setSaveNeeded(true);
     }
 
-    @Action(enabledProperty = "saveNeeded")
     public Task save() {
         return new SaveTask(getApplication());
     }
 
-    private class SaveTask extends Task {
-        SaveTask(org.jdesktop.application.Application app) {
-            super(app);
+    private class SaveTask extends SwingTask {
+        SaveTask() {
+            super();
         }
         @Override protected Void doInBackground() {
             try {
@@ -256,14 +243,13 @@ public class ADagentView extends FrameView {
      * artificial 'Thread.sleep' calls making the task long enough to see the
      * progress visualization - remove the sleeps for real application.
      */
-    @Action
-    public Task refresh() {
-       return new RefreshTask(getApplication());
+    public SwingTask refresh() {
+       return new RefreshTask();
     }
 
-    private class RefreshTask extends Task {
-        RefreshTask(org.jdesktop.application.Application app) {
-            super(app);
+    private class RefreshTask extends SwingTask {
+        RefreshTask() {
+            super();
         }
         @SuppressWarnings("unchecked")
         @Override protected Void doInBackground() {
@@ -336,17 +322,15 @@ public class ADagentView extends FrameView {
         }
     }
 
-    @Action
     public void showAboutBox() {
         if (aboutBox == null) {
-            JFrame mainFrame = ADagentApp.getApplication().getMainFrame();
+            JFrame mainFrame = this;
             aboutBox = new ADagentAboutBox(mainFrame);
             aboutBox.setLocationRelativeTo(mainFrame);
         }
-        ADagentApp.getApplication().show(aboutBox);
+        aboutBox.setVisible(rootPaneCheckingEnabled);
     }
 
-    @Action
     public void editCustomerRecord() {
         
         Collection<adagent.TOrder> ts = tOrderList;
@@ -373,7 +357,7 @@ public class ADagentView extends FrameView {
     }
 
     private int doEditDialog(adagent.TOrder T) {
-        JFrame mainFrame = ADagentApp.getApplication().getMainFrame();
+        JFrame mainFrame = this;
         CustomerOrder orderDialog = new CustomerOrder(mainFrame, false);
         orderDialog.setCurrentOrder(T);
         orderDialog.setVisible(true);
