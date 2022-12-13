@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<persons>
-  <person name="Neil Young" age="62" sex="MALE" />
-  <person name="Bob Dylan" age="67" sex="MALE" />
-  <person name="Joni Mitchell" age="65" sex="FEMALE" />
-</persons>

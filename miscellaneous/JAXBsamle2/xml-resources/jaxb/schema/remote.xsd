@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.tvt.platform.simulator.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.tvt.platform.simulator.ui" id="remote" name="remote"/>
+      </appInfo>
+      <documentation>
+         Contributes on-screen remote controls to a TVT based product.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="remote"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="remote">
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="stbReference"/>
+            <element ref="stbGroupReference"/>
+         </choice>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A concrete implementation of IRemote that is instantiated and managed by the Remote Control framework.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.tvt.platform.simulator.ui.remote.IRemote"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Unique identifier for this remote
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name of this remote to be displayed in UI components
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="image" type="string">
+            <annotation>
+               <documentation>
+                  Optional path to an image that may be used as a background. This attribute will be ignored if the class attribute does not refer to an AbstractImageMapRemote.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="stbReference">
+      <annotation>
+         <documentation>
+            Optional list of STBs that this remote may be used with. An empty/absent list implies universal compatibility.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="ref" type="string" use="required">
+            <annotation>
+               <documentation>
+                  id of an stbDeclaration contributed in an org.tvt.platform.simulator.setTopBox extension
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="org.tvt.platform.simulator.setTopBox/stbDeclaration/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="stbGroupReference">
+      <complexType>
+         <attribute name="ref" type="string" use="required">
+            <annotation>
+               <documentation>
+                  id of an stbGroup contributed in an org.tvt.platform.simulator.setTopBox extension
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="org.tvt.platform.simulator.setTopBox/stbGroup/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>
